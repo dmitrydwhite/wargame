@@ -1,12 +1,14 @@
-'use strict';
-// import uuid from 'node-uuid';
-// import Deck from './DeckOfCards';
+import uuid from 'node-uuid';
+import Deck from './DeckOfCards';
 
-var uuid = require('node-uuid')
-var Deck = require('./DeckOfCards.js');
-
-
+/**
+ * The War Card Game Class
+ */
 class WarGame {
+  /**
+   * Creates a WarGame class
+   * @return {WarGame} - An instance of the WarGame Class
+   */
   constructor() {
     this.deck = new Deck().unWrap().shuffle();
     var len = this.deck.deck.length;
@@ -171,30 +173,4 @@ class WarGame {
   }
 }
 
-// Integration test for game engine
-// var g = new WarGame();
-
-
-// function playGame(game) {
-//   if (game.inProgressTurn) {
-//     if (game.inProgressTurn.result.winner === 'tie') {
-//       game.resolveTurn();
-//     } else {
-//       let turn = game.resolveTurn();
-//       let compCards = game.players.computer.discard.length + game.players.computer.reserve.length;
-//       let userCards = game.players.user.discard.length + game.players.user.reserve.length;
-
-//       console.log('TURN:[' + game.gameTurn + '] WINNER:[' + turn.result.winner + ']');
-//       console.log('cards won:' + turn.cardsInPlay.length);
-//       console.log('computer:' + compCards + ' user:' + userCards);
-//     }
-//   } else {
-//     game.playOutCards();
-//   }
-// }
-
-// while(g.gameState === 0) {
-//   playGame(g);
-// }
-module.exports = WarGame;
-// export default WarGame;
+export default WarGame;

@@ -1,8 +1,9 @@
-'use strict';
-
-// import Uuid from 'node-uuid';
-var Uuid = require('node-uuid');
-
+/**
+ * Helper function for shuffling the deck
+ * @param  {Number} min - The lower bound (inclusive) for generating a random number.
+ * @param  {Number} max - The upper bound for generating a random number.
+ * @return {Number} - A random Integer between min (inclusive) and max(exclusive).
+ */
 const getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 };
@@ -11,6 +12,12 @@ const getRandomInt = function (min, max) {
  * Card class
  */
 class Card {
+  /**
+   * Create a card with protected getters for name and value.
+   * @param  {String} name  The display name of the card.
+   * @param  {Number} value The value of the card.
+   * @return {Card} - An instance of the class with methods for accessing name and value.
+   */
   constructor(name, value) {
     var getName = function () {
       return name;
@@ -58,7 +65,7 @@ class DeckUtils {
  */
 class Deck {
   constructor(opts) {
-    this.suits = ['S', 'H', 'D', 'C'];
+    this.suits = ['♠', '♥', '♦', '♣'];
     this.rankOrder = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
     this.rankedJokers = [];
     this.isWrapped = true;
@@ -75,7 +82,7 @@ class Deck {
 
   /**
    * Builds the deck from the class parameters.
-   * @return {this} Chainable
+   * @return {this} Chainable.
    */
   unWrap() {
     for (let suit=0; suit<this.suits.length; suit++) {
@@ -90,12 +97,21 @@ class Deck {
     return this;
   }
 
+  /**
+   * Use the shuffle util to shuffle the whole deck.
+   * @return {this} - Chainable.
+   */
   shuffle() {
     this.deck = DeckUtils.shuffle(this.deck);
 
     return this;
   }
 
+  /**
+   * Use the shuffle util to shuffle a portion of any deck.
+   * @param  {Array} hand - The array of cards to shuffle.
+   * @return {Array} - The shuffled cards.
+   */
   shuffleHand(hand) {
     return DeckUtils.shuffle(hand);
   }
@@ -139,14 +155,5 @@ class Deck {
   }
 }
 
-// export default Deck;
-module.exports = Deck;
-
-var bloop = new Deck();
-
-bloop.unWrap().shuffle();
-
-bloop.deck.forEach(function(card) {
-  console.log(card.getName());
-});
+export default Deck;
 
