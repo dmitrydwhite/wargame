@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.row-12 {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 1px;
+}
+
+.column-1,
+.column-2,
+.column-3,
+.colunm-4,
+.column-5,
+.column-6,
+.column-7,
+.column-8,
+.column-9,
+.column-10,
+.column-11,
+.column-12 {
+  float: left;
+  min-height: 1px;
+}
+
+.column-1 {
+  width: 8.3%;
+}
+
+.column-2 {
+  width: 16.6%;
+}
+
+.column-3 {
+  width: 25%;
+}
+
+.column-4 {
+  width: 33%;
+}
+
+.column-6 {
+  width: 50%;
+}
+
+.column-7 {
+  width: 58.3%;
+}
+
+.column-8 {
+  width: 66.6%;
+}
+
+.column-9 {
+  width: 66.6%;
+}
+
+.column-10 {
+  width: 83.3%;
+}
+
+.clearfix {
+  clear: both;
+}
